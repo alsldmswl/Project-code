@@ -59,7 +59,7 @@ final class RankFeatureSectionViewCell: UICollectionViewCell{
         setupLayout()
         titleLabel.text = rankingFeature.title
         descriptionLabel.text = rankingFeature.description
-        inAppPurchaseInfoLabel.isHidden = !rankingFeature.isInpurchaseApp
+        inAppPurchaseInfoLabel.isHidden = !rankingFeature.isInPurchaseApp
     }
 }
 
