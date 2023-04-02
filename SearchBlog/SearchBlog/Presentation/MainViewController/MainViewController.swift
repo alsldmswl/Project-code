@@ -15,11 +15,11 @@ class MainViewController: UIViewController{
     let searchBar = SearchBar()
     let listView = BlogListView()
     
-    let alerActionTapped = PublishRelay<AlertAction>()
+//    let alertActionTapped = PublishRelay<AlertAction>()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super .init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        bind()
+    
         attribute()
         layout()
     }
@@ -28,19 +28,15 @@ class MainViewController: UIViewController{
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func bind() {
-        let alertSheetForSorting = listView.headerView.sortButtonTapped
-            .map { _ -> Alert in
-                return (title: nil, message: nil, actions: [.title, .datetime, .cancel], style: .actionSheet)
-            }
-        
-        alertSheetForSorting
-            .asSignal(onErrorSignalWith: .empty())
+    func bind(_ viewModel: MainViewModel) {
+        listView.bind(viewModel.blogListViewModel)
+        searchBar.bind(viewModel.searchBarViewModel)
+        viewModel.shouldPresentAlert
             .flatMapLatest { alert -> Signal<AlertAction> in
                 let alertController = UIAlertController(title: alert.title, message: alert.message, preferredStyle: alert.style)
                 return self.presentAlertController(alertController, actions: alert.actions)
             }
-            .emit(to: alerActionTapped)
+            .emit(to: viewModel.alertActionTapped)
             .disposed(by: disposeBag)
             
     }
