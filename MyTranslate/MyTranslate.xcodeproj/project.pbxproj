@@ -16,6 +16,7 @@
 		BD1E6BE929D9BFA600609079 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = BD1E6BE829D9BFA600609079 /* Alamofire */; };
 		BD1E6BEC29D9C1E200609079 /* TranslateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1E6BEB29D9C1E200609079 /* TranslateViewController.swift */; };
 		BD1E6BEE29D9C4EC00609079 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1E6BED29D9C4EC00609079 /* UIColor+.swift */; };
+		BD1E6BF029D9CCC500609079 /* SourceTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1E6BEF29D9CCC500609079 /* SourceTextViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		BD1E6BDE29D9BF8200609079 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD1E6BEB29D9C1E200609079 /* TranslateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateViewController.swift; sourceTree = "<group>"; };
 		BD1E6BED29D9C4EC00609079 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		BD1E6BEF29D9CCC500609079 /* SourceTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceTextViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,9 +79,18 @@
 			isa = PBXGroup;
 			children = (
 				BD1E6BD429D9BF8000609079 /* TabBarController.swift */,
-				BD1E6BEB29D9C1E200609079 /* TranslateViewController.swift */,
+				BD1E6BF129D9CCD100609079 /* Translate */,
 			);
 			path = Scenes;
+			sourceTree = "<group>";
+		};
+		BD1E6BF129D9CCD100609079 /* Translate */ = {
+			isa = PBXGroup;
+			children = (
+				BD1E6BEB29D9C1E200609079 /* TranslateViewController.swift */,
+				BD1E6BEF29D9CCC500609079 /* SourceTextViewController.swift */,
+			);
+			path = Translate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,6 +173,7 @@
 			files = (
 				BD1E6BD529D9BF8000609079 /* TabBarController.swift in Sources */,
 				BD1E6BEC29D9C1E200609079 /* TranslateViewController.swift in Sources */,
+				BD1E6BF029D9CCC500609079 /* SourceTextViewController.swift in Sources */,
 				BD1E6BD129D9BF8000609079 /* AppDelegate.swift in Sources */,
 				BD1E6BD329D9BF8000609079 /* SceneDelegate.swift in Sources */,
 				BD1E6BEE29D9C4EC00609079 /* UIColor+.swift in Sources */,
