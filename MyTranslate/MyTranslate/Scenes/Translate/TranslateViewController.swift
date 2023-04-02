@@ -12,11 +12,6 @@ import UIKit
 
 final class TranslateViewController :UIViewController {
     
-    enum `Type` {
-        case source
-        case target
-    }
-    
     private var sourceLanguage: Language = .ko
     private var targetLanguage: Language = .en
     
@@ -76,16 +71,38 @@ final class TranslateViewController :UIViewController {
     private lazy var bookmarkButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "bookmark"), for: .normal)
+        button.addTarget(self, action: #selector(didTapBookmarkButton), for: .touchUpInside)
         
         return button
     }()
     
+    @objc func didTapBookmarkButton() {
+        guard let sourcText = sourceLabel.text,
+              let translateText = resultLabel.text,
+              bookmarkButton.imageView?.image == UIImage(systemName: "bookmark")
+        else {return}
+        
+        bookmarkButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+        
+        let currentBookmarks: [Bookmark] = UserDefaults.standard.bookmarks
+        let newBookmark = Bookmark(sourceLanguage: sourceLanguage, translatedLaguage: targetLanguage, sourceText: sourcText, traslatedText: translateText)
+        UserDefaults.standard.bookmarks =  [newBookmark] + currentBookmarks
+        
+        print(UserDefaults.standard.bookmarks)
+     
+    }
+    
     private lazy var copyButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "doc.on.doc"), for: .normal)
+        button.addTarget(self, action: #selector(didTapCopyButton), for: .touchUpInside)
         
         return button
     }()
+    
+    @objc func didTapCopyButton() {
+        UIPasteboard.general.string = resultLabel.text
+    }
     
     private lazy var sourceLabelBaseButton: UIView = {
         let view = UIView()
@@ -119,11 +136,13 @@ final class TranslateViewController :UIViewController {
     }
 }
 
-extension TranslateViewController:SourceTextViewControllerDelegate{
+extension TranslateViewController: SourceTextViewControllerDelegate{
     func didEnterText(_ sourceText: String) {
         if sourceText.isEmpty {return}
         sourceLabel.text = sourceText
         sourceLabel.textColor = .label
+        
+        bookmarkButton.setImage((UIImage(systemName: "bookmark")), for: .normal)
     }
     
     

@@ -15,7 +15,7 @@ final class TabBarController: UITabBarController {
         let translateViewController = TranslateViewController()
         translateViewController.tabBarItem = UITabBarItem(title: "Translate", image: UIImage(systemName: "mic"), selectedImage: UIImage(systemName: "mic.fill"))
         
-        let bookmarkViewController = UIViewController()
+        let bookmarkViewController = UINavigationController(rootViewController: BookmarkListViewController())
         bookmarkViewController.tabBarItem = UITabBarItem(title: "bookmark", image: UIImage(systemName: "star"), selectedImage: UIImage(systemName: "star.fill"))
         
         viewControllers = [translateViewController, bookmarkViewController]

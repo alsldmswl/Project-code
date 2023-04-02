@@ -18,6 +18,12 @@
 		BD1E6BEE29D9C4EC00609079 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1E6BED29D9C4EC00609079 /* UIColor+.swift */; };
 		BD1E6BF029D9CCC500609079 /* SourceTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1E6BEF29D9CCC500609079 /* SourceTextViewController.swift */; };
 		BD1E6BF329D9D8A000609079 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1E6BF229D9D8A000609079 /* Language.swift */; };
+		BD1E6BF529D9DB8E00609079 /* Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1E6BF429D9DB8E00609079 /* Bookmark.swift */; };
+		BD1E6BF729D9DD5500609079 /* UserDefaults+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1E6BF629D9DD5500609079 /* UserDefaults+.swift */; };
+		BD1E6BFA29D9E0C300609079 /* BookmarkListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1E6BF929D9E0C300609079 /* BookmarkListViewController.swift */; };
+		BD1E6BFC29D9E3D100609079 /* BookmarkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1E6BFB29D9E3D100609079 /* BookmarkCollectionViewCell.swift */; };
+		BD1E6BFE29D9E5D300609079 /* BookmarkTextStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1E6BFD29D9E5D300609079 /* BookmarkTextStackView.swift */; };
+		BD1E6C0029D9E76200609079 /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1E6BFF29D9E76200609079 /* Type.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +38,12 @@
 		BD1E6BED29D9C4EC00609079 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		BD1E6BEF29D9CCC500609079 /* SourceTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceTextViewController.swift; sourceTree = "<group>"; };
 		BD1E6BF229D9D8A000609079 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
+		BD1E6BF429D9DB8E00609079 /* Bookmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookmark.swift; sourceTree = "<group>"; };
+		BD1E6BF629D9DD5500609079 /* UserDefaults+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+.swift"; sourceTree = "<group>"; };
+		BD1E6BF929D9E0C300609079 /* BookmarkListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkListViewController.swift; sourceTree = "<group>"; };
+		BD1E6BFB29D9E3D100609079 /* BookmarkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkCollectionViewCell.swift; sourceTree = "<group>"; };
+		BD1E6BFD29D9E5D300609079 /* BookmarkTextStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkTextStackView.swift; sourceTree = "<group>"; };
+		BD1E6BFF29D9E76200609079 /* Type.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,8 +80,8 @@
 			children = (
 				BD1E6BD029D9BF8000609079 /* AppDelegate.swift */,
 				BD1E6BD229D9BF8000609079 /* SceneDelegate.swift */,
-				BD1E6BED29D9C4EC00609079 /* UIColor+.swift */,
-				BD1E6BF229D9D8A000609079 /* Language.swift */,
+				BD1E6C0229D9E86000609079 /* Models */,
+				BD1E6BF829D9DD6000609079 /* Extension */,
 				BD1E6BEA29D9C1D400609079 /* Scenes */,
 				BD1E6BD929D9BF8200609079 /* Assets.xcassets */,
 				BD1E6BDB29D9BF8200609079 /* LaunchScreen.storyboard */,
@@ -82,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				BD1E6BD429D9BF8000609079 /* TabBarController.swift */,
+				BD1E6C0129D9E85200609079 /* BookMark */,
 				BD1E6BF129D9CCD100609079 /* Translate */,
 			);
 			path = Scenes;
@@ -94,6 +107,35 @@
 				BD1E6BEF29D9CCC500609079 /* SourceTextViewController.swift */,
 			);
 			path = Translate;
+			sourceTree = "<group>";
+		};
+		BD1E6BF829D9DD6000609079 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				BD1E6BED29D9C4EC00609079 /* UIColor+.swift */,
+				BD1E6BF629D9DD5500609079 /* UserDefaults+.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		BD1E6C0129D9E85200609079 /* BookMark */ = {
+			isa = PBXGroup;
+			children = (
+				BD1E6BF929D9E0C300609079 /* BookmarkListViewController.swift */,
+				BD1E6BFB29D9E3D100609079 /* BookmarkCollectionViewCell.swift */,
+				BD1E6BFD29D9E5D300609079 /* BookmarkTextStackView.swift */,
+			);
+			path = BookMark;
+			sourceTree = "<group>";
+		};
+		BD1E6C0229D9E86000609079 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BD1E6BF229D9D8A000609079 /* Language.swift */,
+				BD1E6BF429D9DB8E00609079 /* Bookmark.swift */,
+				BD1E6BFF29D9E76200609079 /* Type.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,12 +217,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD1E6BD529D9BF8000609079 /* TabBarController.swift in Sources */,
+				BD1E6BF729D9DD5500609079 /* UserDefaults+.swift in Sources */,
 				BD1E6BEC29D9C1E200609079 /* TranslateViewController.swift in Sources */,
 				BD1E6BF029D9CCC500609079 /* SourceTextViewController.swift in Sources */,
 				BD1E6BF329D9D8A000609079 /* Language.swift in Sources */,
 				BD1E6BD129D9BF8000609079 /* AppDelegate.swift in Sources */,
 				BD1E6BD329D9BF8000609079 /* SceneDelegate.swift in Sources */,
+				BD1E6C0029D9E76200609079 /* Type.swift in Sources */,
 				BD1E6BEE29D9C4EC00609079 /* UIColor+.swift in Sources */,
+				BD1E6BFA29D9E0C300609079 /* BookmarkListViewController.swift in Sources */,
+				BD1E6BF529D9DB8E00609079 /* Bookmark.swift in Sources */,
+				BD1E6BFE29D9E5D300609079 /* BookmarkTextStackView.swift in Sources */,
+				BD1E6BFC29D9E3D100609079 /* BookmarkCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
