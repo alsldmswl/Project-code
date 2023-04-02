@@ -8,29 +8,43 @@
 import SnapKit
 import UIKit
 
+
+
 final class TranslateViewController :UIViewController {
+    
+    enum `Type` {
+        case source
+        case target
+    }
+    
+    private var sourceLanguage: Language = .ko
+    private var targetLanguage: Language = .en
+    
     private lazy var sourceLanguageButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Korean", for: .normal)
+        button.setTitle(sourceLanguage.title, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 15, weight: .semibold)
         button.setTitleColor(.label, for: .normal)
         button.backgroundColor = .systemBackground
         button.layer.cornerRadius = 9
+        button.addTarget(self, action: #selector(didTapSourceLanguageButton), for: .touchUpInside)
         
         return button
     }()
     
     private lazy var targetLanguageButton: UIButton = {
         let button = UIButton()
-        button.setTitle("English", for: .normal)
+        button.setTitle(targetLanguage.title, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 15, weight: .semibold)
         button.setTitleColor(.label, for: .normal)
         button.backgroundColor = .systemBackground
         button.layer.cornerRadius = 9
         
+        button.addTarget(self, action: #selector(didTapTargetLanguageButton), for: .touchUpInside)
+        
         return button
     }()
-    
+   
     private lazy var buttonStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.distribution = .fillEqually
@@ -169,6 +183,35 @@ private extension TranslateViewController {
     @objc func didTapSourceLabelBaseButton() {
         let viewController = SourceTextViewController(delegate: self)
         present(viewController, animated: true)
+    }
+    
+    @objc func didTapSourceLanguageButton() {
+        didTapLanguageButton(type: .source)
+    }
+    @objc func didTapTargetLanguageButton() {
+        didTapLanguageButton(type: .target)
+    }
+    
+    func didTapLanguageButton(type: Type) {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        Language.allCases.forEach { laguage in
+            let action = UIAlertAction(title: laguage.title, style: .default) {[weak self] _ in
+                switch type {
+                case .source:
+                    self?.targetLanguage = laguage
+                    self?.sourceLanguageButton.setTitle(laguage.title, for: .normal)
+                case .target:
+                    self?.sourceLanguage = laguage
+                    self?.targetLanguageButton.setTitle(laguage.title, for: .normal)
+                }
+                
+            }
+            alertController.addAction(action)
+        }
+        
+        let cancelAction = UIAlertAction(title: "cancel", style: .cancel)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true)
     }
     
 }

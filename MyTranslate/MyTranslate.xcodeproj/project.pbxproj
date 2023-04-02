@@ -17,6 +17,7 @@
 		BD1E6BEC29D9C1E200609079 /* TranslateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1E6BEB29D9C1E200609079 /* TranslateViewController.swift */; };
 		BD1E6BEE29D9C4EC00609079 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1E6BED29D9C4EC00609079 /* UIColor+.swift */; };
 		BD1E6BF029D9CCC500609079 /* SourceTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1E6BEF29D9CCC500609079 /* SourceTextViewController.swift */; };
+		BD1E6BF329D9D8A000609079 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1E6BF229D9D8A000609079 /* Language.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		BD1E6BEB29D9C1E200609079 /* TranslateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateViewController.swift; sourceTree = "<group>"; };
 		BD1E6BED29D9C4EC00609079 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		BD1E6BEF29D9CCC500609079 /* SourceTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceTextViewController.swift; sourceTree = "<group>"; };
+		BD1E6BF229D9D8A000609079 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				BD1E6BD029D9BF8000609079 /* AppDelegate.swift */,
 				BD1E6BD229D9BF8000609079 /* SceneDelegate.swift */,
 				BD1E6BED29D9C4EC00609079 /* UIColor+.swift */,
+				BD1E6BF229D9D8A000609079 /* Language.swift */,
 				BD1E6BEA29D9C1D400609079 /* Scenes */,
 				BD1E6BD929D9BF8200609079 /* Assets.xcassets */,
 				BD1E6BDB29D9BF8200609079 /* LaunchScreen.storyboard */,
@@ -174,6 +177,7 @@
 				BD1E6BD529D9BF8000609079 /* TabBarController.swift in Sources */,
 				BD1E6BEC29D9C1E200609079 /* TranslateViewController.swift in Sources */,
 				BD1E6BF029D9CCC500609079 /* SourceTextViewController.swift in Sources */,
+				BD1E6BF329D9D8A000609079 /* Language.swift in Sources */,
 				BD1E6BD129D9BF8000609079 /* AppDelegate.swift in Sources */,
 				BD1E6BD329D9BF8000609079 /* SceneDelegate.swift in Sources */,
 				BD1E6BEE29D9C4EC00609079 /* UIColor+.swift in Sources */,
