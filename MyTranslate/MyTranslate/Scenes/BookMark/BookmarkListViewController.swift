@@ -32,7 +32,7 @@ final class BookmarkListViewController: UIViewController {
         
         setupLayout()
         
-        navigationItem.title = "Bookmark"
+        navigationItem.title = "즐겨찾기"
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     

@@ -15,10 +15,10 @@ enum Language: String, CaseIterable, Codable {
     
     var title: String {
         switch self {
-        case .ko: return "Korean"
-        case .en: return "English"
-        case .ja: return "Japanese"
-        case .ch: return "Chinese"
+        case .ko: return "한국어"
+        case .en: return "영어"
+        case .ja: return "일본어"
+        case .ch: return "중국어"
         }
     }
     

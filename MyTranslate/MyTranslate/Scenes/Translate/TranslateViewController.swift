@@ -232,7 +232,7 @@ private extension TranslateViewController {
             alertController.addAction(action)
         }
         
-        let cancelAction = UIAlertAction(title: "cancel", style: .cancel)
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel)
         alertController.addAction(cancelAction)
         present(alertController, animated: true)
     }
