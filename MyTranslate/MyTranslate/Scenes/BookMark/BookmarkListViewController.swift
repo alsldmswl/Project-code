@@ -15,7 +15,7 @@ final class BookmarkListViewController: UIViewController {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical //기본이 vertical
         layout.estimatedItemSize = CGSize(width: view.frame.width - 32, height: 100)
-        layout.sectionInset = UIEdgeInsets(top: 16, left: 16, bottom: 40, right: 16)
+        layout.sectionInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
         layout.minimumLineSpacing = 16
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)

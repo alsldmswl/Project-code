@@ -11,7 +11,7 @@ enum Language: String, CaseIterable, Codable {
     case ko
     case en
     case ja
-    case ch
+    case ch = "zn-CN"
     
     var title: String {
         switch self {
@@ -20,5 +20,9 @@ enum Language: String, CaseIterable, Codable {
         case .ja: return "Japanese"
         case .ch: return "Chinese"
         }
+    }
+    
+    var languageCode: String {
+        self.rawValue
     }
 }

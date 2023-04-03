@@ -10,7 +10,6 @@ import Foundation
 struct Bookmark: Codable {
     let sourceLanguage: Language
     let translatedLaguage: Language
-    
     let sourceText: String
     let traslatedText: String
     

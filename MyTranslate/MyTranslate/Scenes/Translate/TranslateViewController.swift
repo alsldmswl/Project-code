@@ -11,13 +11,13 @@ import UIKit
 
 
 final class TranslateViewController :UIViewController {
+    private var translateManager = TranslatorManager()
     
-    private var sourceLanguage: Language = .ko
-    private var targetLanguage: Language = .en
+
     
     private lazy var sourceLanguageButton: UIButton = {
         let button = UIButton()
-        button.setTitle(sourceLanguage.title, for: .normal)
+        button.setTitle(translateManager.sourceLanguage.title, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 15, weight: .semibold)
         button.setTitleColor(.label, for: .normal)
         button.backgroundColor = .systemBackground
@@ -29,7 +29,7 @@ final class TranslateViewController :UIViewController {
     
     private lazy var targetLanguageButton: UIButton = {
         let button = UIButton()
-        button.setTitle(targetLanguage.title, for: .normal)
+        button.setTitle(translateManager.targetLanguage.title, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 15, weight: .semibold)
         button.setTitleColor(.label, for: .normal)
         button.backgroundColor = .systemBackground
@@ -62,7 +62,6 @@ final class TranslateViewController :UIViewController {
         let label = UILabel()
         label.font = .systemFont(ofSize: 23, weight: .bold)
         label.textColor = UIColor.mainTintColor
-        label.text = "hello"
         label.numberOfLines = 0
         
         return label
@@ -85,7 +84,7 @@ final class TranslateViewController :UIViewController {
         bookmarkButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
         
         let currentBookmarks: [Bookmark] = UserDefaults.standard.bookmarks
-        let newBookmark = Bookmark(sourceLanguage: sourceLanguage, translatedLaguage: targetLanguage, sourceText: sourcText, traslatedText: translateText)
+        let newBookmark = Bookmark(sourceLanguage: translateManager.sourceLanguage, translatedLaguage: translateManager.targetLanguage, sourceText: sourcText, traslatedText: translateText)
         UserDefaults.standard.bookmarks =  [newBookmark] + currentBookmarks
         
         print(UserDefaults.standard.bookmarks)
@@ -133,6 +132,7 @@ final class TranslateViewController :UIViewController {
         
         view.backgroundColor = .secondarySystemBackground
         setupViews()
+       
     }
 }
 
@@ -141,6 +141,10 @@ extension TranslateViewController: SourceTextViewControllerDelegate{
         if sourceText.isEmpty {return}
         sourceLabel.text = sourceText
         sourceLabel.textColor = .label
+        
+        translateManager.translate(from: sourceText) {[weak self] translatedText in
+            self?.resultLabel.text = translatedText
+        }
         
         bookmarkButton.setImage((UIImage(systemName: "bookmark")), for: .normal)
     }
@@ -217,10 +221,10 @@ private extension TranslateViewController {
             let action = UIAlertAction(title: laguage.title, style: .default) {[weak self] _ in
                 switch type {
                 case .source:
-                    self?.targetLanguage = laguage
+                    self?.translateManager.sourceLanguage = laguage
                     self?.sourceLanguageButton.setTitle(laguage.title, for: .normal)
                 case .target:
-                    self?.sourceLanguage = laguage
+                    self?.translateManager.targetLanguage = laguage
                     self?.targetLanguageButton.setTitle(laguage.title, for: .normal)
                 }
                 
