@@ -1,0 +1,23 @@
+/* 
+  Localizable.strings
+  MyTranslate
+
+  Created by eun-ji on 2023/04/03.
+  
+*/
+
+//TabBar Title
+"Translate" = "Translate";
+"Bookmark" = "Bookmark"; // Navigation title
+
+//Language model
+"Korean" = "Korean";
+"English" = "English";
+"Japanese" = "Japanese";
+"Chinese" = "Chinese";
+
+//Action Sheet
+"Cancel" = "Cancel";
+
+//Placeholder
+"Enter_text" = "Enter Text";
