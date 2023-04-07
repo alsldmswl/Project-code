@@ -68,14 +68,14 @@ class ContentCollectionViewMainCell: UICollectionViewCell {
             $0.titleLabel?.font = .systemFont(ofSize: 13)
             $0.setTitleColor(.white, for: .normal)
             $0.imageView?.tintColor = .white
-            $0.adjustVerticalLayout()
+           
         }
         
-        plusButton.setTitle("내가 찜한 콘텐츠", for: .normal)
+        plusButton.setTitle(" 내가 찜한 콘텐츠", for: .normal)
         plusButton.setImage(UIImage(systemName: "plus"), for: .normal)
         plusButton.addTarget(self, action: #selector(plusButtonTapped), for: .touchUpInside)
         
-        infoButton.setTitle("정보", for: .normal)
+        infoButton.setTitle(" 정보", for: .normal)
         infoButton.setImage(UIImage(systemName: "info.circle"), for: .normal)
         infoButton.addTarget(self, action: #selector(infoButtonTapped), for: .touchUpInside)
         
