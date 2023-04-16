@@ -9,13 +9,19 @@ import UIKit
 
 protocol FeedProtocol: AnyObject {
     func setupView()
+    func reloadTableView()
+    func moveToTweetViewController(with tweet: Tweet)
 }
 
 final class FeedPresenter: NSObject {
     private weak var viewController:
     FeedProtocol?
     
-    init(viewController: FeedProtocol) {
+    private let userDefaultsManager: UserDefaultsManagerProtocol
+    
+    private var tweets: [Tweet] = []
+    
+    init(viewController: FeedProtocol, userDefaultsManager: UserDefaultsManagerProtocol = UserDefaultsManager()) {
         self.viewController = viewController
     }
     
@@ -38,5 +44,11 @@ extension FeedPresenter: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        let tweet = tweets[indexPath.row]
+        viewController?.moveToTweetViewController(with: tweet)
+    }
+   
 }
+
+
